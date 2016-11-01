@@ -1,0 +1,39 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+title:              Selawe 25
+tagline:            ''
+#email:             selawe@yahoo.com
+description: > # this means to ignore newlines until "baseurl:"
+  Selawe
+baseurl:            "" # the subpath of your site, e.g. /blog
+url:                "http://selawe.github.io" # the base hostname & protocol for your site
+paginate:            5
+
+#twitter_username: selawe
+github_username:  selawe
+
+# Build settings
+markdown: kramdown
+
+# Permalinks
+#
+# Use of `relative_permalinks` ensures post links from the index work properly.
+permalink:           pretty
+#relative_permalinks: true
+
+# About/contact
+author:
+  name:              Selawe
+  url:               https://twitter.com/selawe
+  email:             selawe@gmail.com
+
+# Custom vars
+version:             1.0.0
+
+gems: [jekyll-paginate]
