@@ -7,6 +7,8 @@ url = '/unblock-cube-privacy/privacy-policy-en.html'
 
 **Last updated:** November 14, 2026
 
+[Read the Indonesian version]({{< relref "privacy-policy-id.md" >}})
+
 ## Summary
 
 Unblock Cube is a puzzle game that can be played entirely offline. The app does **not** collect your name, email, phone number, location, contacts, or advertising identifiers. There are no ads and no third-party tracking.

@@ -7,6 +7,8 @@ url = '/unblock-cube-privacy/privacy-policy-id.html'
 
 **Terakhir diperbarui:** 14 November 2026
 
+[Baca versi bahasa Inggris]({{< relref "privacy-policy-en.md" >}})
+
 ## Ringkasan
 
 Lepas Kotak adalah game puzzle yang dapat dimainkan sepenuhnya secara offline. Aplikasi **tidak** mengumpulkan nama, email, nomor telepon, lokasi, kontak, atau pengenal periklanan. Tidak ada iklan dan tidak ada pelacakan pihak ketiga.
