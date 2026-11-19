@@ -1,0 +1,23 @@
+{{- $posts := where site.RegularPages "Section" "posts" -}}
+{{- $updated := now -}}
+{{- range first 1 ($posts.ByLastmod.Reverse) -}}
+  {{- $updated = .Lastmod -}}
+{{- end -}}
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ site.Title | html }}</title>
+  <link rel="self" href="{{ with .OutputFormats.Get "atom" }}{{ .Permalink | html }}{{ end }}" />
+  <link rel="alternate" href="{{ site.Home.Permalink | html }}" />
+  <id>{{ site.Home.Permalink | html }}</id>
+  <updated>{{ $updated.Format "2006-01-02T15:04:05Z07:00" }}</updated>
+  <author><name>Selawe</name></author>
+  {{ range $posts }}
+    <entry>
+      <title>{{ .Title | html }}</title>
+      <link href="{{ .Permalink | html }}" />
+      <id>{{ .Permalink | html }}</id>
+      <updated>{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}</updated>
+      <content type="html">{{ .Content | html }}</content>
+    </entry>
+  {{ end }}
+</feed>

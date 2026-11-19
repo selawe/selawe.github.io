@@ -1,0 +1,10 @@
+{{ define "main" }}
+  <section class="reading">
+    <header class="reading-header"><h1>{{ .Title }}</h1></header>
+    <ul class="prose">
+      {{ range .RegularPages }}
+        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+      {{ end }}
+    </ul>
+  </section>
+{{ end }}

@@ -1,0 +1,11 @@
+{{ define "main" }}
+  <article class="reading">
+    <header class="reading-header">
+      <h1>{{ .Title }}</h1>
+      {{ if eq .Section "posts" }}
+        <time class="post-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02 Jan 2006" }}</time>
+      {{ end }}
+    </header>
+    <div class="prose">{{ .Content }}</div>
+  </article>
+{{ end }}

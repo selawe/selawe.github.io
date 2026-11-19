@@ -1,0 +1,43 @@
+baseURL = 'https://selawe.github.io/'
+title = 'Selawe 25'
+locale = 'en-US'
+disableKinds = ['taxonomy', 'term']
+
+[params]
+  description = 'Selawe'
+  tagline = 'Sekadar membuat jejak, mungkin berguna suatu saat nanti.'
+  repository = 'https://github.com/selawe/selawe.github.io'
+
+[pagination]
+  pagerSize = 5
+
+[permalinks.page]
+  posts = '/:year/:month/:day/:slug/'
+
+[[module.mounts]]
+  source = 'static'
+  target = 'static'
+
+[[module.mounts]]
+  source = 'content'
+  target = 'content'
+
+[[module.mounts]]
+  source = 'unblock-cube-privacy'
+  target = 'content/unblock-cube-privacy'
+
+[outputs]
+  home = ['html', 'rss', 'atom']
+  section = ['html']
+
+[outputFormats.rss]
+  baseName = 'feed'
+  isPlainText = true
+
+[mediaTypes.'application/atom+xml']
+  suffixes = ['xml']
+
+[outputFormats.atom]
+  mediaType = 'application/atom+xml'
+  baseName = 'atom'
+  isPlainText = true

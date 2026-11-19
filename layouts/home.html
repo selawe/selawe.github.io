@@ -1,0 +1,30 @@
+{{ define "main" }}
+  {{ $paginator := .Paginate (where site.RegularPages "Section" "posts") }}
+  <header class="intro">
+    <h1>{{ site.Title }}</h1>
+    <p>{{ site.Params.tagline }}</p>
+  </header>
+
+  <section class="journal" aria-labelledby="journal-title">
+    <div class="journal-heading">
+      <h2 id="journal-title">Tulisan</h2>
+    </div>
+    {{ range $paginator.Pages }}
+      <article class="entry">
+        <time class="post-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02 Jan 2006" }}</time>
+        <div>
+          <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+          {{ with .Summary | plainify }}<p>{{ . }}</p>{{ end }}
+        </div>
+      </article>
+    {{ else }}
+      <p>Belum ada tulisan.</p>
+    {{ end }}
+    {{ if gt $paginator.TotalPages 1 }}
+      <nav class="pagination" aria-label="Halaman tulisan">
+        {{ with $paginator.Prev }}<a href="{{ .URL }}">Lebih baru</a>{{ end }}
+        {{ with $paginator.Next }}<a href="{{ .URL }}">Lebih lama</a>{{ end }}
+      </nav>
+    {{ end }}
+  </section>
+{{ end }}
