@@ -7,6 +7,8 @@ disableKinds = ['taxonomy', 'term']
   description = 'Selawe'
   tagline = 'Sekadar membuat jejak, mungkin berguna suatu saat nanti.'
   repository = 'https://github.com/selawe/selawe.github.io'
+  # Isi setelah listing publik: https://play.google.com/store/apps/details?id=id.podorejo.unlockcube
+  unblockCubePlayStoreURL = ''
 
 [pagination]
   pagerSize = 5

@@ -1,9 +1,16 @@
 {{ define "main" }}
   <section class="reading">
-    <header class="reading-header"><h1>{{ .Title }}</h1></header>
+    <header class="reading-header">
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}<p>{{ . }}</p>{{ end }}
+    </header>
     <ul class="prose">
-      {{ range .RegularPages }}
-        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+      {{ range where .RegularPages "Params.unlisted" "ne" true }}
+        {{ $language := .Params.language }}
+        <li>
+          <a href="{{ .RelPermalink }}"{{ with $language }} lang="{{ . }}"{{ end }}>{{ .Title }}</a>
+          {{ with .Description }}<p{{ with $language }} lang="{{ . }}"{{ end }}>{{ . }}</p>{{ end }}
+        </li>
       {{ end }}
     </ul>
   </section>

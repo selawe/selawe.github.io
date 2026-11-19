@@ -1,0 +1,43 @@
+{{ define "page-meta" }}
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ .Title }}">
+  <meta property="og:description" content="{{ .Description }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:image" content="{{ "images/unblock-cube/banner.png" | absURL }}">
+  <meta property="og:image:alt" content="Unblock Cube — Lepas Kotak">
+  <meta property="og:image:width" content="1024">
+  <meta property="og:image:height" content="500">
+  <link rel="alternate" hreflang="{{ .Params.translationlanguage }}" href="{{ ref . .Params.translation }}">
+{{ end }}
+
+{{ define "main" }}
+  <article class="game-landing">
+    <header class="game-hero">
+      <div class="game-intro">
+        <p class="game-category">{{ .Params.category }}</p>
+        <h1>{{ .Title }}</h1>
+        <p class="game-description">{{ .Description }}</p>
+        {{ with site.Params.unblockcubeplaystoreurl }}
+          <a class="game-store" href="{{ . }}">{{ if eq $.Params.language "id" }}Unduh di Google Play{{ else }}Get it on Google Play{{ end }}</a>
+        {{ end }}
+        <a class="game-language" href="{{ relref . .Params.translation }}" lang="{{ .Params.translationlanguage }}" hreflang="{{ .Params.translationlanguage }}">{{ .Params.translationlabel }}</a>
+      </div>
+      <img class="game-screenshot" src="{{ .Params.screenshot | relURL }}" width="1080" height="1920" alt="{{ .Params.screenshotalt }}">
+    </header>
+    <section class="game-details" aria-label="{{ .Params.detailslabel }}">
+      {{ range .Params.details }}
+        <div>
+          <h2>{{ .title }}</h2>
+          <p>{{ .text }}</p>
+        </div>
+      {{ end }}
+    </section>
+    <section class="game-privacy" aria-labelledby="game-privacy-title">
+      <h2 id="game-privacy-title">{{ .Params.privacylabel }}</h2>
+      <ul>
+        <li><a href="{{ relref . "/unblock-cube-privacy/privacy-policy-id.md" }}" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+        <li><a href="{{ relref . "/unblock-cube-privacy/privacy-policy-en.md" }}" lang="en" hreflang="en">English</a></li>
+      </ul>
+    </section>
+  </article>
+{{ end }}
